@@ -8,6 +8,7 @@ namespace XMLator.Parsers
 {
     internal interface IParser
     {
-
+        List<string> Search(Stream xmlStream, Dictionary<string, string> keyword);
+        Dictionary<string, List<string>> GetAllAttributes(Stream xmlStream);
     }
 }
