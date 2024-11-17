@@ -14,12 +14,12 @@ namespace XMLator.Parsers
             XDocument doc = XDocument.Load(xmlStream);
 
             var attributes = doc.Descendants()
-                .SelectMany(element => element.Attributes())  // отримуємо всі атрибути з кожного елемента
-                .GroupBy(attr => attr.Name.LocalName)         // групуємо за назвою атрибута
+                .SelectMany(element => element.Attributes())  
+                .GroupBy(attr => attr.Name.LocalName)         
                 .ToDictionary(
-                    group => group.Key,                       // назва атрибута
-                    group => group.Select(attr => attr.Value) // значення атрибутів
-                                   .Distinct()                // унікальні значення
+                    group => group.Key,                       
+                    group => group.Select(attr => attr.Value) 
+                                   .Distinct()                
                                    .ToList()
                 );
 
